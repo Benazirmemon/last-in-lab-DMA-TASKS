@@ -1,0 +1,35 @@
+#include<stdio.h>
+#include<stdlib.h>
+int main(){
+   int number;
+    int *ptr;
+    printf("enter the registration number for students");
+    scanf("%d",&number);
+    ptr=(int*)malloc(number*sizeof(int));
+    if(ptr==NULL){
+        printf("memory allocation failed");
+    }
+    else{
+        printf("memory allocation successfully");
+        for(int i=0;i<number;i++){
+            printf("\nenter registration number %d",i+1);
+            scanf("%d",&ptr[i]);
+            }
+        for(int i=0;i<number;i++){
+            printf(" \n%d", ptr[i]);
+    }
+        int additionalnum;
+        printf("enter the additional num for students ");
+        scanf("%d",&additionalnum);
+        ptr=(int*)realloc(ptr,additionalnum*sizeof(int));
+   
+     for(int i=number;i<additionalnum;i++){
+            printf("\nenter the additional registration number %d",i+1);
+            scanf("%d",&ptr[i]);
+            }
+         for(int i=0;i<additionalnum;i++){
+             printf("%d",ptr[i]);
+         }
+         free(ptr);
+    }
+}
